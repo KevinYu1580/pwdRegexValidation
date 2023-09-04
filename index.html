@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="./css/index.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="myInput">
+        <div class="myInput__title">登入密碼</div>
+        <input
+          placeholder="請輸入符合規格組合密碼"
+          class=""
+          name=""
+          v-model="inputVal"
+        />
+        <span>模組輸出結果:</span>
+      </div>
+      <pwd-validation
+        :regex-list="pwdRuleList"
+        :input-value="inputVal"
+      ></pwd-validation>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script
+      type="module"
+      src="./index.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+.myInput {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  input {
+    padding: 4px 8px;
+  }
+}
+.pwdCheck {
+  display: flex;
+  margin-top: 8px;
+  .pwdCheck__item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #d2d2d2;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    svg {
+      path {
+        stroke: #d2d2d2;
+      }
+    }
+  }
+  .pwdCheck__item--passed {
+    color: #659e75;
+    svg {
+      path {
+        stroke: #659e75;
+      }
+    }
+  }
+}
