@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Document</title>
+    <title>密碼驗證模組(Vue option_api component)</title>
     <link
       rel="stylesheet"
       href="./css/index.css"
@@ -22,11 +22,12 @@
           name=""
           v-model="inputVal"
         />
-        <span>模組輸出結果:</span>
+        <span>模組輸出結果: {{moduleOutput}}</span>
       </div>
       <pwd-validation
         :regex-list="pwdRuleList"
         :input-value="inputVal"
+        @output="updatePwdModuleOutput"
       ></pwd-validation>
     </div>
 

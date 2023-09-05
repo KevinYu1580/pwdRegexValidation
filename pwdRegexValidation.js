@@ -1,18 +1,18 @@
 export default {
   data() {
     return {
-      count: 0,
+      outPut_boolean: false, // true符合，false不符合
     }
   },
-  props: ['regexList', 'inputValue'],
+  props: ['regexList', 'inputValue', 'ttt'],
   template: `
-
   <div class="pwdCheck">
   <div
+    v-for="(item, index) in regexList"
     class="pwdCheck__item"
-   v-for="(item, index) in regexList"
+    :class="{'pwdCheck__item--passed': item.Passed}"
   >
-    <!-- 勾勾(stroke) -->
+    <!-- svg -->
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="17"
@@ -28,18 +28,53 @@ export default {
         stroke-linejoin="round"
       />
     </svg>
-    <!-- 正規式名稱(UI) -->
+    <!-- 正規式名稱 -->
     <span>{{item.Name}}</span>
   </div>
   </div>
         `,
-  mounted() {
-    console.log('regexList', this.regexList)
+  methods: {
+    //將正規式字串轉型為正規式物件
+    stringToRegex(string) {
+      const RegexObj = string.match(/\/(.+)\/.*/)[1]
+      return new RegExp(RegexObj)
+    },
+    async validate(value) {
+      //重置驗證結果
+      this.outPut_boolean = false
+
+      for (let i = 0; i < this.regexList.length; i++) {
+        let regex = this.stringToRegex(this.regexList[i].Regex)
+
+        // 檢查是否符合正規式，並將結果記錄在regexList[i].Passed，以控制template UI
+        if (regex.test(value)) {
+          //如果該正規式符合，則將key: Passed = true
+          this.regexList[i].Passed = true
+        } else {
+          //如果該正規式不符合，則將key: Passed = false
+          this.regexList[i].Passed = false
+        }
+
+        // 如果有一個正規式不符合，則將outPut_boolean = false
+        if (this.regexList[i].Passed === false) {
+          this.outPut_boolean = false
+          continue
+        } else {
+          // 如果全部正規式都符合，則將outPut_boolean = true
+          this.outPut_boolean = true
+        }
+      }
+    },
+    sendOutput() {
+      // 將驗證結果傳給父元件
+      this.$emit('output', this.outPut_boolean)
+    },
   },
   watch: {
     // 將input值傳給父元件
-    inputVal: function (newValue, oldValue) {
-      this.$emit('inputValue', this.inputVal)
+    inputValue: function (newValue, oldValue) {
+      // this.$emit('inputValue', this.inputVal)
+      this.validate(newValue).then(this.sendOutput())
     },
   },
 }

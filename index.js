@@ -7,7 +7,7 @@ Vue.createApp({
       // 密碼規則陣列，格式為 [{Name: '密碼規則名稱', Regex: '密碼規則正規式'}]
       pwdRuleList: [],
       inputVal: '',
-      module_outPut: false,
+      moduleOutput: false,
     }
   },
   components: {
@@ -33,15 +33,11 @@ Vue.createApp({
       })
       this.pwdRuleList = returnData //將密碼規則陣列記錄在Vue.data中，供chkPwd_module()使用
     },
+    updatePwdModuleOutput(output) {
+      this.moduleOutput = output
+    },
   },
 
-  computed: {
-    // function_Name() {},
-  },
-
-  watch: {
-    data: function (newValue, oldValue) {},
-  },
   mounted() {
     this.getPwdRuleList()
   },
