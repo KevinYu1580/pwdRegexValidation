@@ -9,26 +9,40 @@
 .pwdCheck {
   display: flex;
   margin-top: 8px;
+  gap: 16px;
   .pwdCheck__item {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     color: #d2d2d2;
-    font-weight: 400;
+    font-weight: normal;
     font-size: 14px;
     line-height: 140%;
-    svg {
-      path {
-        stroke: #d2d2d2;
+    .item__svgWrapper {
+      $svgSize: 18px;
+      min-width: $svgSize;
+      min-height: $svgSize;
+      width: $svgSize;
+      height: $svgSize;
+      svg {
+        path {
+          stroke: #d2d2d2;
+        }
       }
     }
   }
   .pwdCheck__item--passed {
     color: #659e75;
-    svg {
-      path {
-        stroke: #659e75;
+    .item__svgWrapper {
+      svg {
+        path {
+          stroke: #659e75;
+        }
       }
     }
   }
+}
+
+.fontColorTest {
+  color: #1519f8;
 }
