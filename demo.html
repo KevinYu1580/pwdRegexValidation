@@ -2,34 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>pwdRegexValidation Demo</title>
-    <link
-      rel="stylesheet"
-      href="./css/index.css"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RegexValidator Demo</title>
+    <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
     <div id="app">
       <div class="myInput">
         <div class="myInput__title">登入密碼</div>
-        <input
-          placeholder="請輸入符合規格組合密碼"
-          class=""
-          name=""
-          v-model="inputVal"
-          type="password"
-        />
-        <span>模組輸出結果: {{moduleOutput}}</span>
+        <input placeholder="請輸入密碼" class="" name="" v-model="inputVal" type="password" />
+        <span :style="{color: moduleOutput?'#659e75' : '#ff5858'}"
+          >模組輸出結果: {{moduleOutput?'符合' : '不符合'}}</span
+        >
       </div>
-      <Regex-validator
-        :regex-list="pwdRuleList"
-        :input-value="inputVal"
-        @output="updatePwdModuleOutput"
-      >
+      <Regex-validator :regex-list="pwdRuleList" :input-value="inputVal" @output="updatePwdModuleOutput">
         <!-- <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,9 +37,6 @@
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script
-      type="module"
-      src="./index.js"
-    ></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>

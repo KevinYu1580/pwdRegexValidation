@@ -1,5 +1,5 @@
 // 引入模組
-import RegexValidator from './pwdRegexValidation.js'
+import { RegexValidator } from './regexValidator.js'
 
 Vue.createApp({
   data() {

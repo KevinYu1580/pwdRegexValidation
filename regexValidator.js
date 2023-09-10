@@ -1,4 +1,4 @@
-export default {
+export const RegexValidator = {
   data() {
     return {
       outPut_boolean: false, // true符合，false不符合
@@ -58,10 +58,18 @@ export default {
   </div>
         `,
   methods: {
-    //將正規式字串轉型為正規式物件
-    stringToRegex(string) {
-      const RegexObj = string.match(/\/(.+)\/.*/)[1]
-      return new RegExp(RegexObj)
+    //驗證正規式格式
+    stringToRegex(obj) {
+      switch (typeof obj) {
+        case 'string':
+          const RegexObj = obj.match(/\/(.+)\/.*/)[1]
+          return new RegExp(RegexObj)
+
+        case 'object':
+          return obj
+        default:
+          throw new Error('Regex type error')
+      }
     },
     // 驗證
     async validate(value) {
