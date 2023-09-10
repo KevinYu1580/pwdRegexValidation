@@ -1,40 +1,38 @@
+# RegexValidator 正規式驗證模組(powered by Vue option api)
 
-# RegexValidator (powered by Vue option api)
-
-專為vue option api打造，快速使用該模組以使用您自訂的正規式驗證input資料並即時顯示於UI 
-
+專為 vue option api 打造，快速使用該模組並且以自訂的正規式驗證資料並即時顯示於 UI
 
 ## Demo
 
 Insert gif or link to demo
 
-
 ## 功能
 
-* 自由綁定您的input資料
-* 自訂驗證正規式
-* 自訂驗證正規式名稱 (畫面UI)
-* 自訂svg樣式
-* 完成驗證後可輸出驗證結果 (布林值)
+- 自由綁定您的 input 資料
+- 自訂驗證正規式
+- 自訂驗證正規式名稱 (畫面 UI)
+- 自訂 svg 樣式
+- 完成驗證後可輸出驗證結果 (布林值)
 
 ## 快速開始
-將RegexValidator用於您的專案
 
-### 1. 於html引入css
+將 RegexValidator 用於您的專案
+
+### 1. 於 html 引入 css
 
 ```html
- <link rel="stylesheet" href="./css/index.css" />
+<link rel="stylesheet" href="./css/index.css" />
 ```
 
-### 2. 於main.js引入模組並註冊元件
+### 2. 於 main.js 引入模組並註冊元件
 
 ```javascript
- import { RegexValidator } from './regexValidator.js'
+import { RegexValidator } from './regexValidator.js'
 
- Vue.createApp({
+Vue.createApp({
   data() {
     return {
-    //   your data
+      //   your data
     }
   },
   components: {
@@ -47,4 +45,3 @@ Insert gif or link to demo
   },
 }).mount('#app')
 ```
-
