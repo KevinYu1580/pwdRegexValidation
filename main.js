@@ -4,8 +4,8 @@ import { RegexValidator } from './regexValidator.js'
 Vue.createApp({
   data() {
     return {
-      pwdRuleList: [], //正規式陣列
-      inputVal: '', //input輸入值
+      myPwdRuleList: [], //正規式陣列
+      myInputVal: '', //input輸入值
       moduleOutput: false, //正規式模組輸出
     }
   },
@@ -17,7 +17,7 @@ Vue.createApp({
   methods: {
     getPwdRuleList() {
       // 使用者自訂的密碼規則(格式須符合模組格式)
-      this.pwdRuleList = [
+      this.myPwdRuleList = [
         { Name: '長度為8-20碼', Regex: '/^.{8,20}$/' },
         { Name: '含數字0-9', Regex: '/[0-9]/' },
         { Name: '含英文字大寫A-Z', Regex: '/[A-Z]/' },

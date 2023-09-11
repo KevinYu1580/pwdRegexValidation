@@ -10,13 +10,13 @@
     <div id="app">
       <div class="myInput">
         <div class="myInput__title">登入密碼</div>
-        <input placeholder="請輸入密碼" class="" name="" v-model="inputVal" type="password" />
+        <input placeholder="請輸入密碼" class="" name="" v-model="myInputVal" type="password" />
         <span :style="{color: moduleOutput?'#659e75' : '#ff5858'}"
           >驗證結果布林值: {{moduleOutput?'true(符合)' : 'false(不符合)'}}</span
         >
       </div>
-      <Regex-validator :regex-list="pwdRuleList" :input-value="inputVal" @output="updatePwdModuleOutput">
-        <!-- <template #icon>
+      <Regex-validator :regex-list="myPwdRuleList" :input-value="myInputVal" @output="updatePwdModuleOutput" />
+      <!-- <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -33,7 +33,7 @@
             />
           </svg>
         </template> -->
-      </Regex-validator>
+      <!-- </Regex-validator> -->
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
