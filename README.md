@@ -115,7 +115,7 @@ required: `false`
       <Regex-validator :regex-list="myPwdRuleList" :input-value="myInputVal" />
 
       <template v-slot:icon>
-          {/* 您的 svg */}
+          // 您的 svg
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
