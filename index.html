@@ -16,7 +16,7 @@
         >
       </div>
       <Regex-validator :regex-list="myPwdRuleList" :input-value="myInputVal" @output="updatePwdModuleOutput" />
-      <!-- <template #icon>
+      <template v-slot:icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -32,8 +32,8 @@
               stroke-linejoin="round"
             />
           </svg>
-        </template> -->
-      <!-- </Regex-validator> -->
+        </template>
+      </Regex-validator>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

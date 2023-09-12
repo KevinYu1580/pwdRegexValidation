@@ -4,7 +4,7 @@
 
 ## Demo
 
-![Alt Text](./demoVideo/demoGIF.gif)
+![Alt Text](./demoSrc/demoGIF.gif)
 
 ## 功能
 
