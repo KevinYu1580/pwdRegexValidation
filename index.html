@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RegexValidator Demo</title>
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
     <div id="app">
@@ -15,8 +15,8 @@
           >驗證結果布林值: {{moduleOutput?'true(符合)' : 'false(不符合)'}}</span
         >
       </div>
-      <Regex-validator :regex-list="myPwdRuleList" :input-value="myInputVal" @output="updatePwdModuleOutput" />
-      <template v-slot:icon>
+      <Regex-validator :regex-list="myPwdRuleList" :input-value="myInputVal" @output="updatePwdModuleOutput">
+        <!-- <template v-slot:icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -32,7 +32,7 @@
               stroke-linejoin="round"
             />
           </svg>
-        </template>
+        </template> -->
       </Regex-validator>
     </div>
 

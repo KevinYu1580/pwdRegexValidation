@@ -1,18 +1,21 @@
-# RegexValidator 正規式驗證模組(powered by Vue option api)
+# RegexValidator (powered by Vue option api)
 
-專為 vue option api 打造，快速使用該模組並且以自訂的正規式驗證資料並即時顯示於 UI
-
-## Demo
+專為 vue option api 打造，快速使用該模組以使用您自訂的正規式驗證 input 資料並即時顯示於 UI
 
 ![Alt Text](./demoSrc/demoGIF.gif)
 
-## 功能
+## Features
 
 - 自由綁定您的 input 資料
 - 自訂驗證正規式
 - 自訂驗證正規式名稱 (畫面 UI)
 - 自訂 svg 樣式
 - 完成驗證後可輸出驗證結果 (布林值)
+- 不依賴 jQuey
+
+## Demo
+
+動手玩玩看 ==> https://kevinyu1580.github.io/pwdRegexValidation/
 
 ## 快速開始
 
@@ -104,6 +107,33 @@ required: `false`
 
 ## 2. 自訂 svg 樣式
 
+預設樣式為 ![Alt Text](./demoSrc/defaultIcon.svg)
+
+使用 v-slot 來自訂您的 svg
+
+```javascript
+      <Regex-validator :regex-list="myPwdRuleList" :input-value="myInputVal" />
+    //  您的 svg
+      <template v-slot:icon>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M15.142 9.98299L10.875 14.25L9.42049 12.7955M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3Z"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </template>
+      </Regex-validator>
+```
+
 ## 3. emit 事件綁定
 
 藉由 emit 事件綁定模組驗證後的輸出值
@@ -126,7 +156,8 @@ main.js 內自訂 function，與父元件內 data 綁定
 Vue.createApp({
   data() {
     return {
-      moduleOutput: false, //正規式模組輸出，type: Boolean
+      //正規式模組輸出，type: Boolean
+      moduleOutput: false,
     }
   },
   components: {
