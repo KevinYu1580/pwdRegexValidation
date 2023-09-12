@@ -87,7 +87,7 @@ required: `false`
 傳入的陣列格式務必為和下列相符
 
 ```javascript
-;[
+[
   { Name: '正規式名稱', Regex: '正規式' },
   // ...其餘物件
 ]
@@ -96,7 +96,7 @@ required: `false`
 當無此 props 時，預設為以下
 
 ```javascript
-;[
+[
   { Name: '長度為8-20碼', Regex: '/^.{8,20}$/' },
   { Name: '含數字0-9', Regex: '/[0-9]/' },
   { Name: '含英文字大寫A-Z', Regex: '/[A-Z]/' },
@@ -148,7 +148,7 @@ emit required: `false`
 父元件 html
 
 ```html
-<Regex-validator @output="myFunc" />
+<Regex-validator @output="myFunc" :regex-list="myPwdRuleList" :input-value="myInputVal" />
 ```
 
 main.js 內自訂 function，與父元件內 data 綁定
