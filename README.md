@@ -113,8 +113,9 @@ required: `false`
 
 ```javascript
       <Regex-validator :regex-list="myPwdRuleList" :input-value="myInputVal" />
-    //  您的 svg
+
       <template v-slot:icon>
+          {/* 您的 svg */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
